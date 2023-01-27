@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab&display=swap");
+body {
+  font-family: "Roboto", sans-serif;
+  color: #000000;
+}
+
+button, .info-btn, .warning-btn, .abort-btn, .submit-btn {
+  font-size: 15px;
+  font-weight: 500;
+  border: solid 3px #000000;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 8px;
+  transition: all 0.4s ease-in-out;
+  background: transparent;
+}
+button:hover, .info-btn:hover, .warning-btn:hover, .abort-btn:hover, .submit-btn:hover {
+  background-color: #000000;
+  color: #ffffff;
+  transition: all 0.4s ease;
+  transform: scale(1.1);
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.submit-btn {
+  color: #00c800;
+  border-color: #00c800;
+}
+.submit-btn:hover {
+  background-color: #00c800;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 200, 0, 0.5);
+}
+
+.abort-btn {
+  color: #ff0000;
+  border-color: #ff0000;
+}
+.abort-btn:hover {
+  background-color: #ff0000;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.warning-btn {
+  color: #ffbd2a;
+  border-color: #ffbd2a;
+}
+.warning-btn:hover {
+  background-color: #ffbd2a;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 189, 42, 0.5);
+}
+
+.info-btn {
+  color: #0058e1;
+  border-color: #0058e1;
+}
+.info-btn:hover {
+  background-color: #0058e1;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 88, 225, 0.5);
+}
+
+input {
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 8px;
+  transition: all 0.4s ease-in-out;
+  background: transparent;
+  border: solid 3px #000000;
+}
+input:hover {
+  transition: all 0.4s ease;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+input:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+input:invalid {
+  border: solid 3px #ff0000;
+  background: #ff0000;
+  color: #ffffff;
+}
+input:invalid:focus {
+  border: solid 3px #ff0000;
+  background: #ff0000;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+/*# sourceMappingURL=styles.css.map */
