@@ -1,8 +1,13 @@
-<div class="task-item">
-  <h3 class="taskTitle">hello</h3>
-  <p class="taskDescription">hello</p>
-  <h5 class="taskSeverity">none</h5>
-  <button class="info-btn">Edit task</button>
-  <button class="abort-btn">Delete task</button>
-  <button class="submit-btn">Task completed</button>
+<div class="task-body" *ngFor="let todoItem of  todoItems">
+  <div class="task-content">
+    <h3 class="taskTitle">{{todoItem}}</h3>
+    <p class="taskDescription">{{todoItem}}</p>
+    <h5 class="taskSeverity">{{todoItem}}</h5>
+  </div>
+  <div class="task-actionArea">
+    <button class="info-btn" (click)="editTask()">Edit task</button>
+    <button class="abort-btn" (click)="deleteTask()">Delete task</button>
+    <button class="submit-btn" (click)="completeTask()">Task completed</button>
+  </div>
+
 </div>

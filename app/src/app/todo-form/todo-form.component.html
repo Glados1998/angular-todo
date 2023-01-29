@@ -1,11 +1,11 @@
-<form action="">
+<form [formGroup]="todoForm">
   <label for="taskTitle">Task</label>
-  <input type="text" id="taskTitle" name="taskTitle">
+  <input type="text" id="taskTitle" name="taskTitle" formControlName="taskName" >
   <label for="taskDescription">Description</label>
-  <input type="text" id="taskDescription" name="taskDescription">
+  <input type="text" id="taskDescription" name="taskDescription" formControlName="taskDescription">
   <label for="taskSeverity">Task severity</label>
-  <select id="taskSeverity" name="taskSeverity">
+  <select id="taskSeverity" name="taskSeverity" formControlName="taskSeverety">
     <option *ngFor="let severity of taskSeverety" [value]="severity">{{severity}}</option>
   </select>
-  <button type="submit" class="submit-btn">Add to list</button>
+  <button type="submit" class="submit-btn" (click)="onSubmit()">Add to list</button>
 </form>

@@ -7,5 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  tasks: any;
+  todoList: object[] = [];
+
+  reveivedTodoFormValue(todoFormValue: object ) {
+    console.log(todoFormValue);
+    this.todoList.push(todoFormValue);
+    console.log(this.todoList);
+  }
+
 }
