@@ -1,0 +1,11 @@
+<form action="">
+  <label for="taskTitle">Task</label>
+  <input type="text" id="taskTitle" name="taskTitle">
+  <label for="taskDescription">Description</label>
+  <input type="text" id="taskDescription" name="taskDescription">
+  <label for="taskSeverity">Task severity</label>
+  <select id="taskSeverity" name="taskSeverity">
+    <option *ngFor="let severity of taskSeverety" [value]="severity">{{severity}}</option>
+  </select>
+  <button type="submit">Add to list</button>
+</form>
