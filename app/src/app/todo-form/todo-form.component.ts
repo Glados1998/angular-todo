@@ -9,9 +9,9 @@ import {FormGroup, FormControl} from "@angular/forms";
 export class TodoFormComponent {
   taskSeverety = ['Low', 'Medium', 'High'];
   todoForm = new FormGroup({
-    taskName: new FormControl(''),
-    taskDescription: new FormControl(''),
-    taskSeverety: new FormControl(''),
+    taskName: new FormControl(null),
+    taskDescription: new FormControl(null),
+    taskSeverety: new FormControl(null),
   });
 
   @Output() todoFormSubmit = new EventEmitter<object>();

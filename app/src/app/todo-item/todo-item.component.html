@@ -1,8 +1,8 @@
-<div class="task-body" *ngFor="let todoItem of  todoItems">
+<div class="task-body" *ngFor="let todoItem of todoItems">
   <div class="task-content">
-    <h3 class="taskTitle">{{todoItem}}</h3>
-    <p class="taskDescription">{{todoItem}}</p>
-    <h5 class="taskSeverity">{{todoItem}}</h5>
+    <h3 class="taskTitle">{{todoItem.taskName}}</h3>
+    <p class="taskDescription">{{todoItem.taskDescription}}</p>
+    <h5 class="taskSeverity">{{todoItem.taskSeverety}}</h5>
   </div>
   <div class="task-actionArea">
     <button class="info-btn" (click)="editTask()">Edit task</button>

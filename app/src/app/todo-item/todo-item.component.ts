@@ -7,13 +7,11 @@ import {Component, Input} from '@angular/core';
 })
 export class TodoItemComponent {
 
-  constructor() {
-    this.todoItems = [];
-  }
-  @Input() todoItems: object[];
+
+  @Input() todoItems: any;
 
   editTask() {
-    console.log('edit task')
+    console.log(this.todoItems.taskName)
   }
 
 

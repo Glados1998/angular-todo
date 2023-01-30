@@ -10,8 +10,8 @@ export class AppComponent {
   todoList: object[] = [];
 
   reveivedTodoFormValue(todoFormValue: object ) {
-    console.log(todoFormValue);
     this.todoList.push(todoFormValue);
+    console.log(todoFormValue)
     console.log(this.todoList);
   }
 
