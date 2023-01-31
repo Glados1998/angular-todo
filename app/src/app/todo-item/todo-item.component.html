@@ -1,13 +1,12 @@
-<div class="task-body" *ngFor="let todoItem of todoItems">
+<div class="task-body" *ngFor="let todoItem of todoItems; let i = index">
   <div class="task-content">
-    <h3 class="taskTitle">{{todoItem.taskName}}</h3>
-    <p class="taskDescription">{{todoItem.taskDescription}}</p>
-    <h5 class="taskSeverity">{{todoItem.taskSeverety}}</h5>
+    <h5 class="taskSeverity">{{todoItem["taskSeverety"]}}</h5>
+    <h3 class="taskTitle" contenteditable="true">{{todoItem["taskName"]}}</h3>
+    <p class="taskDescription">{{todoItem["taskDescription"]}}</p>
   </div>
   <div class="task-actionArea">
-    <button class="info-btn" (click)="editTask()">Edit task</button>
-    <button class="abort-btn" (click)="deleteTask()">Delete task</button>
-    <button class="submit-btn" (click)="completeTask()">Task completed</button>
+    <button class="info-btn" (click)="editTask(i)">Edit</button>
+    <button class="abort-btn" (click)="deleteTask(i)">Delete</button>
+    <button class="submit-btn" (click)="completeTask(i)">Complete</button>
   </div>
-
 </div>

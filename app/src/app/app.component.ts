@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  todoList: object[] = [];
+  todoList: any = [];
 
   reveivedTodoFormValue(todoFormValue: object ) {
     this.todoList.push(todoFormValue);

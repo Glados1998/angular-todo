@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
-
+import {MatDialog} from "@angular/material/dialog";
+import {TodoEditorComponent} from "../todo-editor/todo-editor.component";
 @Component({
   selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',
@@ -9,17 +10,31 @@ export class TodoItemComponent {
 
 
   @Input() todoItems: any;
-
-  editTask() {
-    console.log(this.todoItems.taskName)
+  constructor(private dialog: MatDialog) {
   }
 
 
-  deleteTask() {
-    console.log('delete task')
+  //
+  editTask(todoIndex: number) {
+    console.log(todoIndex)
+    console.log(this.todoItems[todoIndex])
+
+    let dialogRef = this.dialog.open(TodoEditorComponent, {
+      width: '300px',
+      data: {todoData: this.todoItems[todoIndex]}
+    });
+
   }
 
-  completeTask() {
-    console.log('complete task')
+  deleteTask(todoIndex: number) {
+    if (window.confirm('Are you sure you want to delete the task:' + this.todoItems[todoIndex]['taskName']+ ' ?')) {
+      this.todoItems.splice(todoIndex, 1);
+    }
+  }
+
+  completeTask(todoIndex: number) {
+    if (window.confirm('Are you sure you want to complete the task:' + this.todoItems[todoIndex]['taskName']+ ' ?')) {
+      this.todoItems.splice(todoIndex, 1)
+    }
   }
 }

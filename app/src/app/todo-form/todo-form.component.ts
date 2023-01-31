@@ -1,5 +1,5 @@
 import {Component, Output, EventEmitter} from '@angular/core';
-import {FormGroup, FormControl} from "@angular/forms";
+import {FormGroup, FormControl, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-todo-form',
@@ -9,14 +9,16 @@ import {FormGroup, FormControl} from "@angular/forms";
 export class TodoFormComponent {
   taskSeverety = ['Low', 'Medium', 'High'];
   todoForm = new FormGroup({
-    taskName: new FormControl(null),
-    taskDescription: new FormControl(null),
-    taskSeverety: new FormControl(null),
+    taskName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    taskDescription: new FormControl(''),
+    taskSeverety: new FormControl('', [Validators.required]),
   });
 
   @Output() todoFormSubmit = new EventEmitter<object>();
+
   onSubmit() {
     this.todoFormSubmit.emit(this.todoForm.value);
+    this.todoForm.reset();
   }
 
 }

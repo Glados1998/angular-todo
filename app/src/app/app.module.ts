@@ -6,18 +6,25 @@ import { AppComponent } from './app.component';
 import { TodoFormComponent } from './todo-form/todo-form.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { TodoItemComponent } from './todo-item/todo-item.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { TodoEditorComponent } from './todo-editor/todo-editor.component';
+
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoFormComponent,
-    TodoItemComponent
+    TodoItemComponent,
+    TodoEditorComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NoopAnimationsModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

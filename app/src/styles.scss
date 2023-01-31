@@ -1,3 +1,38 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$app-primary: mat.define-palette(mat.$indigo-palette);
+$app-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$app-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$app-theme: mat.define-light-theme((
+  color: (
+    primary: $app-primary,
+    accent: $app-accent,
+    warn: $app-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($app-theme);
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab&display=swap');
 
 $primary-color: #000000;
@@ -17,10 +52,9 @@ body {
 
 button {
   font-size: 15px;
-  font-weight: 500;
   border: solid 3px $primary-color;
   border-radius: 10px;
-  padding: 10px;
+  padding: 6px;
   margin: 8px;
   transition: all 0.4s ease-in-out;
   background: transparent;
@@ -87,7 +121,7 @@ input {
   font-size: 15px;
   font-weight: 500;
   border-radius: 10px;
-  padding: 10px;
+  padding: 6px;
   margin: 8px;
   transition: all 0.4s ease-in-out;
   background: transparent;
@@ -115,4 +149,30 @@ input {
     color: $secondary-color;
     box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
   }
+}
+.main-app {
+  display: flex;
+flex-direction: column;
+  max-width: clamp(300px, 50%, 900px);
+  border-radius: 10px;
+  margin: 40px auto 0;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s ease-in-out;
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  }
+}
+
+.app-header {
+  text-align: center;
+}
+
+.main-content {
+  margin-top: 20px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: ghostwhite;
 }
