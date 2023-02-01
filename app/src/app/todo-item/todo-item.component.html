@@ -1,8 +1,8 @@
 <div class="task-body" *ngFor="let todoItem of todoItems; let i = index">
   <div class="task-content">
-    <h5 class="taskSeverity">{{todoItem["taskSeverety"]}}</h5>
-    <h3 class="taskTitle" contenteditable="true">{{todoItem["taskName"]}}</h3>
-    <p class="taskDescription">{{todoItem["taskDescription"]}}</p>
+    <p class="taskSeverity">Priority: {{todoItem["taskSeverety"]}}</p>
+    <h3 class="taskTitle" contenteditable="true">Task: {{todoItem["taskName"]}}</h3>
+    <p class="taskDescription">Note: {{todoItem["taskDescription"]}}</p>
   </div>
   <div class="task-actionArea">
     <button class="info-btn" (click)="editTask(i)">Edit</button>

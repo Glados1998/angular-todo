@@ -24,6 +24,11 @@ export class TodoItemComponent {
       data: {todoData: this.todoItems[todoIndex]}
     });
 
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.todoItems[todoIndex] = result;
+      }
+    });
   }
 
   deleteTask(todoIndex: number) {

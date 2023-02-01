@@ -1,12 +1,16 @@
 <div class="editor-body">
-  <form>
+  <div class="editor-header">
+    <h3>task editor</h3>
+    <p>Current task priority: {{data.todoData.taskSeverety}}</p>
+  </div>
+  <form [formGroup]="editForm">
     <div class="form-group">
       <label for="title">Title</label>
-      <input type="text" class="form-control" id="title">
+      <input type="text" class="form-control" id="title" value="{{data.todoData['taskName']}}" formControlName="taskName" >
       <label for="taskDescription">Description</label>
-      <input class="form-control" id="taskDescription">
+      <input class="form-control" id="taskDescription" value="{{data.todoData['taskDescription']}}" formControlName="taskDescription" >
       <label for="taskSeverity">Severity</label>
-      <select id="taskSeverity" name="taskSeverity">
+      <select id="taskSeverity" name="taskSeverity" formControlName="taskSeverety">
         <option *ngFor="let severity of taskSeverety" [value]="severity">{{severity}}</option>
       </select>
       <div class="form-actionArea">

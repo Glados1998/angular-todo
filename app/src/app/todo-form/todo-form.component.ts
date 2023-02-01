@@ -9,7 +9,7 @@ import {FormGroup, FormControl, Validators} from "@angular/forms";
 export class TodoFormComponent {
   taskSeverety = ['Low', 'Medium', 'High'];
   todoForm = new FormGroup({
-    taskName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    taskName: new FormControl('', Validators.required),
     taskDescription: new FormControl(''),
     taskSeverety: new FormControl('', [Validators.required]),
   });
