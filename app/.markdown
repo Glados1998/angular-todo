@@ -20,6 +20,22 @@ the user can also delete, edit a task inside the list of the repective task <br>
 
 ---
 
+## App installation/node installation
+
+### if you don't have node installed <br>
+
+go to `https://nodejs.org/en/download/` <br>
+download the latest version <br>
+install it <br>
+
+in case you don't have angular cli installed <br>
+run `npm install -g @angular/cli` <br>
+then run `npm install` or `npm i` <br>
+then run `ng serve` <br>
+then go to `http://localhost:4200/`
+
+---
+
 ## How it works
 
 the app is composed of 4 components <br>
@@ -32,4 +48,5 @@ the app is composed of 4 components <br>
 #### the 3 first components communicate wth the help of @Input and @Output <br>
 
 #### the form components sends a formgroup to the app.component <br> to pushed it to the list of tasks <br> in return the app.component sends the task to the todo-item.component <br> to display it in the list of tasks <br>
+
 #### when we want to edit a task we inject data inside a dialogue field from Angular material when we finish we send the form value back to the todo-item and replace the new value with old one with corresponding index
