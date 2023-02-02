@@ -12,6 +12,7 @@ export class TodoFormComponent {
     taskName: new FormControl('', Validators.required),
     taskDescription: new FormControl(''),
     taskSeverety: new FormControl('', [Validators.required]),
+    taskCompleted: new FormControl(false)
   });
 
   @Output() todoFormSubmit = new EventEmitter<object>();

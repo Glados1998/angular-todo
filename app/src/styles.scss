@@ -66,6 +66,17 @@ button {
     cursor: pointer;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
+
+  &:disabled {
+    color: $disabled-color;
+    border-color: $disabled-color;
+    cursor: not-allowed;
+  }
+  &:disabled:hover {
+    background-color: $disabled-color;
+    box-shadow: none;
+  }
+
 }
 
 .submit-btn {
@@ -139,42 +150,15 @@ input {
 
   &:invalid {
     border: solid 3px $danger-color;
-    background: $danger-color;
     color: $secondary-color;
   }
 
   &:invalid:focus {
     border: solid 3px $danger-color;
-    background: $danger-color;
     color: $secondary-color;
     box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
   }
 }
-
-.main-app {
-  display: flex;
-  flex-direction: column;
-  max-width: clamp(300px, 50%, 1201px);
-  border-radius: 10px;
-  margin: 80px auto 0;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  transition: all 0.4s ease-in-out;
-  background: #ffffff;
-  &:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-  }
-}
-
-.app-header {
-  text-align: center;
-}
-
-.main-content {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
 
 html, body {
   height: 100%;

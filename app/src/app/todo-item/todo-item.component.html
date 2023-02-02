@@ -1,7 +1,7 @@
-<div class="task-body" *ngFor="let todoItem of todoItems; let i = index">
+<div class="task-body" [ngClass]="todoItem['taskCompleted'] ? 'task-complete' : 'task-body'"  *ngFor="let todoItem of todoItems; let i = index">
   <div class="task-content">
     <p class="taskSeverity">Priority: {{todoItem["taskSeverety"]}}</p>
-    <h3 class="taskTitle" contenteditable="true">Task: {{todoItem["taskName"]}}</h3>
+    <h3 class="taskTitle">Task: {{todoItem["taskName"]}}</h3>
     <p class="taskDescription">Note: {{todoItem["taskDescription"]}}</p>
   </div>
   <div class="task-actionArea">

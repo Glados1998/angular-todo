@@ -26,3 +26,69 @@
 .task-content p {
   padding: 10px;
 }
+
+.task-completed {
+  @extend .task-body;
+  background: rgba(0, 200, 0, 0.1);
+  border: 2px solid rgba(0, 200, 0, 1);
+}
+
+@media screen and (max-width: 1440px) { /* laptop */
+
+  .task-content {
+    margin-left: 15px;
+  }
+
+  .task-actionArea {
+    margin-right: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .task-actionArea button {
+    margin-right: 25px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 768px) { /* tablet */
+
+  .task-content {
+    margin-left: 5px;
+    font-size: 11px;
+  }
+
+  .task-actionArea {
+    margin-right: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .task-actionArea button {
+    margin-right: 5px;
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) { /* phone */
+
+  .task-content {
+    margin-left: 3px;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    text-wrap: normal;
+  }
+
+  .task-actionArea {
+    margin-right: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .task-actionArea button {
+    margin-right: 5px;
+    font-size: 8px;
+  }
+
+}

@@ -3,20 +3,23 @@
     <h3>task editor</h3>
     <p>Current task priority: {{data.todoData.taskSeverety}}</p>
   </div>
-  <form [formGroup]="editForm">
+  <form [formGroup]="editForm" (ngSubmit)="onEditSubmit()">
     <div class="form-group">
-      <label for="title">Title</label>
-      <input type="text" class="form-control" id="title" value="{{data.todoData['taskName']}}" formControlName="taskName" >
-      <label for="taskDescription">Description</label>
-      <input class="form-control" id="taskDescription" value="{{data.todoData['taskDescription']}}" formControlName="taskDescription" >
-      <label for="taskSeverity">Severity</label>
-      <select id="taskSeverity" name="taskSeverity" formControlName="taskSeverety">
+      <label for="title">Task:</label>
+      <input type="text" class="form-control" id="title" value="{{data.todoData.taskName}}" formControlName="taskName"
+             required>
+      <label for="taskDescription">Description:</label>
+      <input class="form-control" id="taskDescription" value="{{data.todoData.taskDescription}}"
+             formControlName="taskDescription">
+      <label for="taskSeverity">importance:</label>
+      <select id="taskSeverity" name="taskSeverity" formControlName="taskSeverety" required>
         <option *ngFor="let severity of taskSeverety" [value]="severity">{{severity}}</option>
       </select>
       <div class="form-actionArea">
-        <button type="submit" class="submit-btn" (click)="onEditSubmit()">Save change</button>
+        <button type="submit" class="submit-btn" [disabled]="!editForm.valid">Save</button>
         <button type="button" class="abort-btn" (click)="onCancel()">Cancel</button>
       </div>
+      <p *ngIf="editForm.invalid">Please fill out the task input and select how important it is</p>
     </div>
   </form>
 </div>
