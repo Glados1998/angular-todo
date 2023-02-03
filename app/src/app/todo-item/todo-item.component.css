@@ -29,6 +29,10 @@
   background: rgba(0, 200, 0, 0.1);
   border: 2px solid #00c800;
 }
+.task-completed:hover {
+  background: rgba(0, 200, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0, 200, 0, 0.5);
+}
 
 @media screen and (max-width: 1440px) {
   /* laptop */

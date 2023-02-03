@@ -39,7 +39,7 @@ export class TodoItemComponent {
 
   // Mark the task as completed
   completeTask(todoIndex: number) {
-    this.todoItems[todoIndex]['taskCompleted'] = true;
+    this.todoItems[todoIndex]['taskCompleted'] = !this.todoItems[todoIndex]['taskCompleted'];
     // change the class of the task with ngClass by setting the taskCompleted to true
   }
 }
