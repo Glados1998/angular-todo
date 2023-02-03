@@ -11,6 +11,8 @@
     <button class="submit-btn" [disabled]="!todoForm.valid">Add to list</button>
   </div>
   <div class="form-message">
-    <p *ngIf="todoForm.invalid">Please fill out the task input and select how important it is</p>
+    <p *ngIf="todoForm.controls.taskName.errors?.['required']">you have to specify a task name</p>
+    <p *ngIf="todoForm.controls.taskSeverety.errors?.['required']">you have to specify a task severity</p>
+    <p *ngIf="todoForm.controls.taskDescription.errors?.['maxlength']">Description is too long</p>
   </div>
 </form>

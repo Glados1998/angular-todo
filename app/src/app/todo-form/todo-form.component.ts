@@ -10,7 +10,7 @@ export class TodoFormComponent {
   taskSeverety = ['Low', 'Medium', 'High'];
   todoForm = new FormGroup({
     taskName: new FormControl('', Validators.required),
-    taskDescription: new FormControl(''),
+    taskDescription: new FormControl('', Validators.maxLength(20)),
     taskSeverety: new FormControl('', [Validators.required]),
     taskCompleted: new FormControl(false)
   });

@@ -25,8 +25,9 @@ export class TodoEditorComponent implements OnInit {
     console.log(this.data)
     this.editForm = new FormGroup({
       taskName: new FormControl(this.data.todoData.taskName, Validators.required),
-      taskDescription: new FormControl(this.data.todoData.taskDescription),
+      taskDescription: new FormControl(this.data.todoData.taskDescription, Validators.maxLength(20)),
       taskSeverety: new FormControl(this.data.todoData.taskSeverety, [Validators.required]),
+      taskCompleted: new FormControl(this.data.todoData.taskCompleted)
     });
   }
 

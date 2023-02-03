@@ -19,7 +19,9 @@
         <button type="submit" class="submit-btn" [disabled]="!editForm.valid">Save</button>
         <button type="button" class="abort-btn" (click)="onCancel()">Cancel</button>
       </div>
-      <p *ngIf="editForm.invalid">Please fill out the task input and select how important it is</p>
+      <p *ngIf="editForm.controls['taskName'].errors?.['required']">you have to specify a task name</p>
+      <p *ngIf="editForm.controls['taskSeverety'].errors?.['required']">you have to specify a task severity</p>
+      <p *ngIf="editForm.controls['taskDescription'].errors?.['maxlength']">Description is too long</p>
     </div>
   </form>
 </div>
