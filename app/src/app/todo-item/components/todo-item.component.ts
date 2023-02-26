@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
-import {TodoEditorComponent} from "../todo-editor/todo-editor.component";
+import {TodoEditorComponent} from "../../todo-editor/components/todo-editor.component";
+
 @Component({
   selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',

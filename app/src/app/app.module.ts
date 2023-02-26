@@ -3,20 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TodoFormComponent } from './todo-form/todo-form.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { TodoItemComponent } from './todo-item/todo-item.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { TodoEditorComponent } from './todo-editor/todo-editor.component';
-
 import {MatDialogModule} from '@angular/material/dialog';
+import { TodoItemModule } from './todo-item/todo-item.module';
+import {TodoEditorModule} from "./todo-editor/todo-editor.module";
+import { TodoFormModule } from './todo-form/todo-form.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoFormComponent,
-    TodoItemComponent,
-    TodoEditorComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,6 +21,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     FormsModule,
     NoopAnimationsModule,
     MatDialogModule,
+    TodoItemModule,
+    TodoEditorModule,
+    TodoFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]
