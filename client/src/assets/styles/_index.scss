@@ -1,0 +1,12 @@
+@import "./colors";
+@import "./input";
+@import "./header";
+@import "./modal";
+@import "./todo-item";
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Raleway&display=swap');
+
+
+body {
+  background: $BAUHAUS-App-Branding-5-hex;
+  font-family: 'Raleway', sans-serif;
+}
