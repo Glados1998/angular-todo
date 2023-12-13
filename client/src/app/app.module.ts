@@ -6,9 +6,9 @@ import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
-import { TodoItemModule } from './todo-item/todo-item.module';
-import {TodoEditorModule} from "./todo-editor/todo-editor.module";
-import { TodoFormModule } from './todo-form/todo-form.module';
+import {CoreModule} from './core/core.module';
+import {SharedModule} from './shared/shared.module';
+import {FeaturesModule} from './features/features.module';
 
 @NgModule({
   declarations: [
@@ -21,9 +21,9 @@ import { TodoFormModule } from './todo-form/todo-form.module';
     FormsModule,
     NoopAnimationsModule,
     MatDialogModule,
-    TodoItemModule,
-    TodoEditorModule,
-    TodoFormModule
+    CoreModule,
+    SharedModule,
+    FeaturesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
