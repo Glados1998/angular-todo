@@ -6,7 +6,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Raleway&display=swap');
 
 
-body {
+html, body {
   background: $BAUHAUS-App-Branding-5-hex;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Inter', sans-serif;
+  margin: 0 auto;
+}
+
+
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+}
+
+.intro {
+  margin: 2rem 0;
 }

@@ -1,11 +1,16 @@
-<main class="main-app">
-  <header class="app-header">
-    <h2 class="title">Todo app</h2>
-    <p class="header-text">lorem ipsum</p>
-  </header>
-  <section class="main-content">
+<main>
+  <app-header></app-header>
+  <div class="intro">
+    <h2>
+      Welcome to the Angular todo app!
+    </h2>
+    <p>
+      This is a simple todo app built with the latest version of Angular.
+    </p>
+  </div>
+  <div class="todo-container">
     <app-todo></app-todo>
-  </section>
+  </div>
 </main>
 
 <router-outlet></router-outlet>
