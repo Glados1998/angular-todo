@@ -4,14 +4,8 @@
       Angular todo
     </span>
     <ol>
-      <li>
-        <a href="">item 1</a>
-      </li>
-      <li>
-        <a href="">item 2</a>
-      </li>
-      <li>
-        <a href="">item 3</a>
+      <li *ngFor="let link of links">
+        <a [href]=link.path>{{ link.label }}</a>
       </li>
     </ol>
   </nav>

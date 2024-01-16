@@ -7,6 +7,7 @@ import {FormGroup, FormControl, Validators} from "@angular/forms";
   styleUrls: ['./todo-form.component.scss']
 })
 export class TodoFormComponent {
+
   taskSeverety = ['Low', 'Medium', 'High'];
   todoForm = new FormGroup({
     taskName: new FormControl('', Validators.required),

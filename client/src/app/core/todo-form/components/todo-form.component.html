@@ -1,18 +1,24 @@
 <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <label for="taskTitle">Task:</label>
-    <input type="text" id="taskTitle" name="taskTitle" formControlName="taskName" required>
-    <label for="taskDescription">Description:</label>
-    <input type="text" id="taskDescription" name="taskDescription" formControlName="taskDescription">
-    <label for="taskSeverity">Importance:</label>
-    <select id="taskSeverity" name="taskSeverity" formControlName="taskSeverety" required>
-      <option *ngFor="let severity of taskSeverety" [value]="severity">{{severity}}</option>
-    </select>
-    <button class="submit-btn" [disabled]="!todoForm.valid">Add to list</button>
-  </div>
-  <div class="form-message">
-    <p *ngIf="todoForm.controls.taskName.errors?.['required']">you have to specify a task name</p>
-    <p *ngIf="todoForm.controls.taskSeverety.errors?.['required']">you have to specify a task severity</p>
-    <p *ngIf="todoForm.controls.taskDescription.errors?.['maxlength']">Description is too long</p>
+    <label for="taskTitle">Task:
+      <input id="taskTitle" formControlName="taskName" required>
+    </label>
+
+    <label for="taskDescription">Description:
+      <input id="taskDescription" formControlName="taskDescription">
+    </label>
+
+    <label for="taskSeverity">Importance:
+      <select id="taskSeverity" formControlName="taskSeverety" required>
+        <option *ngFor="let severity of taskSeverety" [value]="severity">{{ severity }}</option>
+      </select>
+    </label>
+    <button [disabled]="!todoForm.valid">Add to list</button>
   </div>
 </form>
+
+  <div class="form-message">
+    <p *ngIf="todoForm.get('taskName').hasError('required')">you have to specify a task name</p>
+    <p *ngIf="todoForm.get('taskSeverety').hasError('required')">you have to specify a task severity</p>
+    <p *ngIf="todoForm.get('taskDescription').hasError('maxlength')">Description is too long</p>
+  </div>
