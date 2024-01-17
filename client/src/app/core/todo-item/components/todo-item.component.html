@@ -6,8 +6,8 @@
     <p class="taskDescription">Note: {{todoItem["taskDescription"]}}</p>
   </div>
   <div class="task-actionArea">
-    <button class="info-btn" [disabled]="todoItem['taskCompleted']" (click)="editTask(i)">Edit</button>
-    <button class="abort-btn" (click)="deleteTask(i)">Delete</button>
-    <button class="submit-btn" (click)="completeTask(i)">Complete</button>
+    <button class="btn-info" [disabled]="todoItem['taskCompleted']" (click)="editTask(i)">Edit</button>
+    <button class="btn-danger" (click)="deleteTask(i)">Delete</button>
+    <button class="btn-success" (click)="completeTask(i)">Complete</button>
   </div>
 </div>

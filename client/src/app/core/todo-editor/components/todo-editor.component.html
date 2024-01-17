@@ -1,7 +1,7 @@
 <div class="editor-body">
   <div class="editor-header">
     <h3>task editor</h3>
-    <p>Current task priority: {{data.todoData.taskSeverety}}</p>
+    <p>Current task priority: {{ data.todoData.taskSeverety }}</p>
   </div>
   <form [formGroup]="editForm" (ngSubmit)="onEditSubmit()">
     <div class="form-group">
@@ -13,7 +13,7 @@
              formControlName="taskDescription">
       <label for="taskSeverity">importance:</label>
       <select id="taskSeverity" name="taskSeverity" formControlName="taskSeverety" required>
-        <option *ngFor="let severity of taskSeverety" [value]="severity">{{severity}}</option>
+        <option *ngFor="let severity of taskSeverety" [value]="severity">{{ severity }}</option>
       </select>
       <div class="form-actionArea">
         <button type="submit" class="submit-btn" [disabled]="!editForm.valid">Save</button>

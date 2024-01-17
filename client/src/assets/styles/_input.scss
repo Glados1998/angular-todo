@@ -1,10 +1,97 @@
 @import "./colors";
 
-.form-message {
-  color: $BAUHAUS-App-Branding-1-hex;
-  font-size: 12px;
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
+input, select, textarea {
+  border: 2px solid $text-black;
+  border-radius: 4px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: $text-black;
+  background: transparent;
+  transition: all 0.2s ease-in-out;
+
+  &:focus {
+    outline: none;
+    border: 2px solid $text-black;
+    box-shadow: 0 0 0 2px $text-black;
+  }
 }
 
+button {
+  border: 2px solid $text-black;
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: $text-black;
+  background: transparent;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    background: $text-black;
+    color: $BAUHAUS-App-Branding-5-hex;
+  }
+
+  &:disabled {
+    background: $disabled;
+    color: $BAUHAUS-App-Branding-5-hex;
+    border: 1px solid $disabled;
+    cursor: not-allowed;
+  }
+}
+
+.btn-success {
+  @extend button;
+  border: 2px solid $success;
+
+  &:hover {
+    cursor: pointer;
+    background: $success;
+    color: $BAUHAUS-App-Branding-5-hex;
+  }
+
+  &:disabled {
+    background: $disabled;
+    color: $BAUHAUS-App-Branding-5-hex;
+    border: 2px solid $disabled;
+    cursor: not-allowed;
+  }
+}
+
+.btn-danger {
+  @extend button;
+  border: 2px solid $BAUHAUS-App-Branding-4-hex;
+
+  &:hover {
+    cursor: pointer;
+    background: $BAUHAUS-App-Branding-4-hex;
+    color: $text-white;
+  }
+
+  &:disabled {
+    background: $disabled;
+    color: $BAUHAUS-App-Branding-5-hex;
+    border: 2px solid $disabled;
+    cursor: not-allowed;
+  }
+}
+
+.btn-info {
+  @extend button;
+  border: 2px solid $BAUHAUS-App-Branding-2-hex;
+
+  &:hover {
+    cursor: pointer;
+    background: $BAUHAUS-App-Branding-2-hex;
+    color: $BAUHAUS-App-Branding-5-hex;
+  }
+
+  &:disabled {
+    background: $disabled;
+    color: $BAUHAUS-App-Branding-5-hex;
+    border: 2px solid $disabled;
+    cursor: not-allowed;
+  }
+}
