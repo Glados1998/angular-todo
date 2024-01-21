@@ -1,5 +1,6 @@
-import {Component, Output, EventEmitter} from '@angular/core';
-import {FormGroup, FormControl, Validators} from "@angular/forms";
+import {Component} from '@angular/core';
+import {Validators, FormBuilder} from "@angular/forms";
+import {TodoServiceService} from "../../services/todo-service.service";
 
 @Component({
   selector: 'app-todo-form',
@@ -8,19 +9,26 @@ import {FormGroup, FormControl, Validators} from "@angular/forms";
 })
 export class TodoFormComponent {
 
+  constructor(
+    private todoService: TodoServiceService,
+    private _fb: FormBuilder
+  ) {}
+
   taskSeverety = ['Low', 'Medium', 'High'];
-  todoForm = new FormGroup({
-    taskName: new FormControl('', Validators.required),
-    taskDescription: new FormControl('', Validators.maxLength(20)),
-    taskSeverety: new FormControl('', [Validators.required]),
-    taskCompleted: new FormControl(false)
+  todoForm = this._fb.group({
+    taskName: '',
+    taskDescription: '',
+    taskSeverety: '',
+    taskCompleted: [false]
   });
 
-  @Output() todoFormSubmit = new EventEmitter<object>();
-
   onSubmit() {
-    this.todoFormSubmit.emit(this.todoForm.value);
-    this.todoForm.reset();
+    if (this.todoForm.valid) {
+      this.todoService.addTodo(this.todoForm.value);
+      this.todoForm.reset();
+    } else {
+      alert('Please fill out all fields');
+    }
   }
 
 }

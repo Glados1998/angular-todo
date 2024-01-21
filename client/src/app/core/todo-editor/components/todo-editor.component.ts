@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-todo-editor',
@@ -9,36 +9,43 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class TodoEditorComponent implements OnInit {
 
-  // Get the data from the parent component
   constructor(public dialogRef: MatDialogRef<TodoEditorComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: any) {
+              @Inject(MAT_DIALOG_DATA) public data: any,
+              private fb: FormBuilder) {
   }
 
-  public editForm: FormGroup ;
+  public editForm = this.fb.group({
+    taskName: ['', Validators.required],
+    taskDescription: ['', Validators.maxLength(50)],
+    taskSeverety: ['', Validators.required],
+    taskCompleted: [false]
+  });
+
+  public taskSeverety = ['Low', 'Medium', 'High'];
+  public isLoading = false;
 
   ngOnInit() {
-    this.initForm();
+    this.editForm.patchValue(this.data.todoData);
   }
 
-  // Initialize the form with the data from the parent component and set the validators
-  initForm() {
-    console.log(this.data)
-    this.editForm = new FormGroup({
-      taskName: new FormControl(this.data.todoData.taskName, Validators.required),
-      taskDescription: new FormControl(this.data.todoData.taskDescription, Validators.maxLength(20)),
-      taskSeverety: new FormControl(this.data.todoData.taskSeverety, [Validators.required]),
-      taskCompleted: new FormControl(this.data.todoData.taskCompleted)
-    });
-  }
-
-  taskSeverety = ['Low', 'Medium', 'High'];
-
- // Close the dialog
   onCancel() {
     this.dialogRef.close();
   }
- // Close the dialog and pass the form data to the parent component
+
   onEditSubmit() {
-    this.dialogRef.close(this.editForm.value);
+    if (this.editForm.valid) {
+      this.isLoading = true;
+      // simulate form submission
+      setTimeout(() => {
+        this.isLoading = false;
+        this.dialogRef.close(this.editForm.value);
+      }, 2000);
+    } else {
+      // show error messages
+      Object.keys(this.editForm.controls).forEach(field => {
+        const control = this.editForm.get(field);
+        control.markAsTouched({ onlySelf: true });
+      });
+    }
   }
 }

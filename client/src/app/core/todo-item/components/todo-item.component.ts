@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {TodoEditorComponent} from "../../todo-editor/components/todo-editor.component";
+import {TodoServiceService} from "../../services/todo-service.service";
 
 @Component({
   selector: 'app-todo-item',
@@ -11,7 +12,11 @@ export class TodoItemComponent {
 
   // Get the todoItems from the parent component
   @Input() todoItems: any;
-  constructor(private dialog: MatDialog) {
+
+  constructor(
+    private dialog: MatDialog,
+    private todoService: TodoServiceService,
+  ) {
   }
 
 
@@ -26,21 +31,20 @@ export class TodoItemComponent {
     // When the dialog is closed, update the todoItem
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.todoItems[todoIndex] = result;
+        this.todoService.updateTodo(todoIndex, result);
       }
     });
   }
 
   // Delete the task
   deleteTask(todoIndex: number) {
-    if (window.confirm('Are you sure you want to delete the task:' + this.todoItems[todoIndex]['taskName']+ ' ?')) {
-      this.todoItems.splice(todoIndex, 1);
+    if (window.confirm('Are you sure you want to delete the task:' + this.todoItems[todoIndex]['taskName'] + ' ?')) {
+      this.todoService.deleteTodo(todoIndex);
     }
   }
 
   // Mark the task as completed
   completeTask(todoIndex: number) {
-    this.todoItems[todoIndex]['taskCompleted'] = !this.todoItems[todoIndex]['taskCompleted'];
-    // change the class of the task with ngClass by setting the taskCompleted to true
+    this.todoService.completeTodo(todoIndex);
   }
 }

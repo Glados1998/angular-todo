@@ -1,4 +1,7 @@
 import {Component} from '@angular/core';
+import {TodoServiceService} from "../../core/services/todo-service.service";
+import {FormBuilder} from "@angular/forms";
+import {Todo} from "../../core/interfaces/todo";
 
 @Component({
   selector: 'app-todo',
@@ -6,11 +9,18 @@ import {Component} from '@angular/core';
   styleUrl: './todo.component.scss'
 })
 export class TodoComponent {
-  todoList: any = [];
 
-  reveivedTodoFormValue(todoFormValue: object) {
-    this.todoList.push(todoFormValue);
+  constructor(
+    private todoService: TodoServiceService,
+  ) {}
+
+  todos: Todo[] = [];
+
+  ngOnInit() {
+    this.todoService.getTodos().subscribe((todos: Todo[]) => {
+      this.todos = todos;
+    });
+    console.log(this.todos)
   }
-
 
 }

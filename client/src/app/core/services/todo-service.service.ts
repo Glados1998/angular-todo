@@ -17,18 +17,23 @@ export class TodoServiceService {
     return this.todos$.asObservable();
   }
 
-  addTodo(todo: Todo) {
+  addTodo(todo: any) {
     this.todos.push(todo);
     this.todos$.next(this.todos);
   }
 
-  updateTodo(index: number, updatedTodo: Todo) {
+  updateTodo(index: number, updatedTodo: any) {
     this.todos[index] = updatedTodo;
     this.todos$.next(this.todos);
   }
 
   deleteTodo(index: number) {
     this.todos.splice(index, 1);
+    this.todos$.next(this.todos);
+  }
+
+  completeTodo(index: number) {
+    this.todos[index].taskCompleted =!this.todos[index].taskCompleted;
     this.todos$.next(this.todos);
   }
 }
