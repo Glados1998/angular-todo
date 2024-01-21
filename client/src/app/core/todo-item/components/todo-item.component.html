@@ -1,12 +1,12 @@
-<div class="task-body" [class.task-completed]="todoItem['taskCompleted'] == true"
+<div class="task" [class.task-completed]="todoItem.taskCompleted"
      *ngFor="let todoItem of todoItems; let i = index">
-  <div class="task-content">
-    <p class="taskSeverity">Priority: {{todoItem["taskSeverety"]}}</p>
-    <h3 class="taskTitle">Task: {{todoItem["taskName"]}}</h3>
-    <p class="taskDescription">Note: {{todoItem["taskDescription"]}}</p>
+  <div class="">
+    <p>Priority: {{todoItem.taskSeverety}}</p>
+    <h3>Task: {{todoItem.taskName}}</h3>
+    <p>Note: {{todoItem.taskDescription}}</p>
   </div>
-  <div class="task-actionArea">
-    <button class="btn-info" [disabled]="todoItem['taskCompleted']" (click)="editTask(i)">Edit</button>
+  <div>
+    <button class="btn-info" [disabled]="todoItem.taskCompleted" (click)="editTask(i)">Edit</button>
     <button class="btn-danger" (click)="deleteTask(i)">Delete</button>
     <button class="btn-success" (click)="completeTask(i)">Complete</button>
   </div>
