@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {TodoItemComponent} from "./todo-item/components/todo-item.component";
-import {TodoEditorComponent} from "./todo-editor/components/todo-editor.component";
+import {TodoItemComponent} from "./todo-item/todo-item.component";
+import {TodoEditorComponent} from "./todo-editor/todo-editor.component";
 import {ReactiveFormsModule} from "@angular/forms";
-import {TodoFormComponent} from "./todo-form/components/todo-form.component";
+import {TodoFormComponent} from "./todo-form/todo-form.component";
 
 
 @NgModule({
