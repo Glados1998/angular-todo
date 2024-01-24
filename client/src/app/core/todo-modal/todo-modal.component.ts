@@ -3,13 +3,13 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {FormBuilder, Validators} from "@angular/forms";
 
 @Component({
-  selector: 'app-todo-editor',
-  templateUrl: './todo-editor.component.html',
-  styleUrls: ['./todo-editor.component.scss']
+  selector: 'app-todo-modal',
+  templateUrl: './todo-modal.component.html',
+  styleUrls: ['./todo-modal.component.scss']
 })
-export class TodoEditorComponent implements OnInit {
+export class TodoModalComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<TodoEditorComponent>,
+  constructor(public dialogRef: MatDialogRef<TodoModalComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any,
               private fb: FormBuilder) {
   }

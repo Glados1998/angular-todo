@@ -1,10 +1,9 @@
-<div class="editor-body">
-  <div class="editor-header">
-    <h3>Task Editor</h3>
-    <p>Current task priority: {{ data.todoData.taskSeverety }}</p>
+<div class="modal">
+  <div class="modal-header">
+    <h3>Todo Editor</h3>
   </div>
   <form [formGroup]="editForm" (ngSubmit)="onEditSubmit()">
-    <div class="form-group">
+    <div class="modal-content">
       <label for="title">Task:</label>
       <input type="text" class="form-control" id="title" value="{{data.todoData.taskName}}" formControlName="taskName"
              required>
@@ -18,16 +17,14 @@
         <option *ngFor="let severity of taskSeverety" [value]="severity">{{ severity }}</option>
       </select>
       <p *ngIf="editForm.controls['taskSeverety'].errors?.['required']">You have to specify a task severity</p>
-      <div class="form-actionArea">
-        <button type="submit" class="submit-btn" [disabled]="!editForm.valid">Save</button>
-        <button type="button" class="abort-btn" (click)="onCancel()">Cancel</button>
-      </div>
-      <div *ngIf="editForm.invalid && editForm.touched">
-        <p>Please correct the errors in the form.</p>
-      </div>
-      <div *ngIf="isLoading">
-        <p>Submitting form...</p>
-      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn-success" [disabled]="!editForm.valid">Save</button>
+      <button type="button" class="btn-info" (click)="onCancel()">Cancel</button>
+    </div>
+    <div class="modal-system-message">
+      <p *ngIf="editForm.invalid && editForm.touched">Please correct the errors in the form.</p>
+      <p *ngIf="isLoading">Submitting form...</p>
     </div>
   </form>
 </div>

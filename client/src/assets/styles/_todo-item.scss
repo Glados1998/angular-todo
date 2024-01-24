@@ -1,3 +1,47 @@
 @import "./colors";
 
+.todo-item {
 
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 2rem;
+  padding: 1rem;
+  background: darken($BAUHAUS-App-Branding-5-hex, 5%);
+  border-radius: 2rem;
+  transition: all .3s ease-in-out;
+
+  &:hover {
+    transition: all .3s ease-in-out;
+    transform: scale(1.05);
+  }
+
+  &_content {
+    display: grid;
+    grid-gap: 1rem;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-items: center;
+  }
+
+  &-action_area {
+    display: grid;
+    grid-gap: 1rem;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-items: center;
+  }
+
+  &_status {
+    width: 1rem;
+    height: 1rem;
+
+  }
+}
+
+.completed {
+  background: $success;
+}
+
+.incomplete {
+  background: $danger;
+}
