@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
-import {TodoEditorComponent} from "../todo-editor/todo-editor.component";
+import {TodoModalComponent} from "../todo-modal/todo-modal.component";
 import {TodoServiceService} from "../services/todo-service.service";
 
 @Component({
@@ -23,7 +23,7 @@ export class TodoItemComponent {
   editTask(todoIndex: number) {
 
     // Open the dialog and pass the todoItem to the dialog
-    let dialogRef = this.dialog.open(TodoEditorComponent, {
+    let dialogRef = this.dialog.open(TodoModalComponent, {
       width: '300px',
       data: {todoData: this.todoItems[todoIndex]}
     });

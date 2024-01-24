@@ -118,6 +118,38 @@ header nav ol li a {
 }
 
 /* Color Theme Swatches in Hex */
+.modal {
+  padding: 1rem;
+  display: grid;
+  grid-gap: 1rem;
+  grid-auto-flow: row;
+  align-items: center;
+  justify-items: center;
+}
+.modal-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.modal-content {
+  display: grid;
+  grid-gap: 1rem;
+  grid-auto-flow: row;
+  align-items: center;
+  justify-items: left;
+}
+.modal-footer {
+  display: grid;
+  grid-gap: 1rem;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-items: left;
+}
+.modal-system-message {
+  place-self: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
 /* Color Theme Swatches in Hex */
 .todo-item {
   display: grid;
