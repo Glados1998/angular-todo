@@ -34,35 +34,40 @@ export class TodoItemComponent {
     dialogRef.afterClosed().subscribe((result: Todo) => {
       if (result) {
         // Update the task
-        this.todoService.updateTodo(id, result).subscribe((data: any) => {
-          // Update the todoItems
-          this.todoItems = this.todoItems.map((todo: { id: number; }) => {
-            if (todo.id === data.id) {
-              return data;
-            }
-            return todo;
-          });
-        });
+        this.todoService.updateTodo(id, result).subscribe({
+          next: (data: any) => {
+            this.todoItems = this.todoItems.map((todo: { id: number; }) => todo.id === data.id ? data : todo);
+          },
+          error: (error: any) => {
+            console.error('There was an error!', error);
+          }
+        })
       }
     });
   }
 
   // Delete the task
   deleteTask(id: number) {
-    this.todoService.deleteTodo(id).subscribe((data: any) => {
-      this.todoItems = this.todoItems.filter((todo: { id: number; }) => todo.id !== id);
+    this.todoService.deleteTodo(id).subscribe({
+      next: (data: any) => {
+        // Remove the task from the todoItems
+        this.todoItems = this.todoItems.filter((todo: { id: number; }) => todo.id !== id);
+      },
+      error: (error: any) => {
+        console.error('There was an error!', error);
+      }
     });
   }
 
   // Mark the task as completed
   completeTask(id: number) {
-    this.todoService.completeTodo(id).subscribe((data: any) => {
-      this.todoItems = this.todoItems.map((todo: { id: number; }) => {
-        if (todo.id === data.id) {
-          return data;
-        }
-        return todo;
-      });
+    this.todoService.completeTodo(id).subscribe({
+      next: (data: any) => {
+        this.todoItems = this.todoItems.map((todo: { id: number; }) => todo.id === id ? data : todo);
+      },
+      error: (error: any) => {
+        console.error('There was an error!', error);
+      }
     });
   }
 }

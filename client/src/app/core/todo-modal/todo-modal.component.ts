@@ -25,15 +25,18 @@ export class TodoModalComponent implements OnInit {
     isCompleted: [false]
   });
 
-  public severity = ['low', 'medium', 'high'];
+  public severity = ['Low', 'Medium', 'High'];
   public isLoading = false;
 
   ngOnInit() {
-    console.log(this.data.todoId)
     if (this.data.todoId) {
-      this.todoService.getTodoById(this.data.todoId).subscribe((data: Todo) => {
-        console.log(data)
-        this.editForm.patchValue(data);
+      this.todoService.getTodoById(this.data.todoId).subscribe({
+        next: (data: Todo) => {
+          this.editForm.patchValue(data);
+        },
+        error: (error: any) => {
+          console.error('There was an error!', error);
+        }
       });
     }
   }

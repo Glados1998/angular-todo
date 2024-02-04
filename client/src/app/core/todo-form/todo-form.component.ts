@@ -26,7 +26,14 @@ export class TodoFormComponent{
 
   onSubmit() {
   if (this.todoForm.valid) {
-    this.todoService.addTodo(this.todoForm.value as Todo);
+    this.todoService.addTodo(this.todoForm.value as Todo).subscribe( {
+      next: (data: any) => {
+        console.log('Todo added successfully', data);
+      },
+      error: (error: any) => {
+        console.error('There was an error!', error);
+      }
+    })
     this.todoForm.reset();
   } else {
     let invalidFields = [];

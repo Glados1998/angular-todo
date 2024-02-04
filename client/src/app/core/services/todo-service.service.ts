@@ -11,6 +11,7 @@ export class TodoServiceService {
   constructor(private http: HttpClient) {
   }
 
+
   getTodos() {
     return this.http.get<Todo[]>(`${this.apiUrl}/todo`);
   }
@@ -20,22 +21,18 @@ export class TodoServiceService {
   }
 
   addTodo(data: Todo) {
-    console.log(data)
     return this.http.post<Todo>(`${this.apiUrl}/todo`, data);
   }
 
   updateTodo(id: number, updatedData: Todo) {
-    console.log(updatedData)
     return this.http.put<Todo>(`${this.apiUrl}/todo/${id}`, updatedData);
   }
 
   deleteTodo(id: number) {
-    console.log(id)
     return this.http.delete(`${this.apiUrl}/todo/${id}`);
   }
 
   completeTodo(id: number) {
-    console.log(id)
     return this.http.put(`${this.apiUrl}/todo/${id}`, {isCompleted: true});
   }
 }

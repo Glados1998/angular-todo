@@ -16,10 +16,14 @@ export class TodoComponent implements OnInit {
   todos: Todo[] = [];
 
   ngOnInit() {
-    this.todoService.getTodos().subscribe((todos: Todo[]) => {
-      this.todos = todos;
+    this.todoService.getTodos().subscribe({
+      next: (data: Todo[]) => {
+        this.todos = data;
+      },
+      error: (error: any) => {
+        console.error('There was an error!', error);
+      }
     });
-    console.log(this.todos)
   }
 
 }
