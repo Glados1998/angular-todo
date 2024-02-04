@@ -1,39 +1,41 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 import {Todo} from "../interfaces/todo";
-
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoServiceService {
-  private todos: Todo[] = [];
-  private todos$ = new BehaviorSubject<Todo[]>(this.todos);
+  private apiUrl = 'http://localhost:5292/api';
 
-  constructor() { }
+  constructor(private http: HttpClient) {
+  }
 
   getTodos() {
-    return this.todos$.asObservable();
+    return this.http.get<Todo[]>(`${this.apiUrl}/todo`);
   }
 
-  addTodo(todo: any) {
-    this.todos.push(todo);
-    this.todos$.next(this.todos);
+  getTodoById(id: number) {
+    return this.http.get<Todo>(`${this.apiUrl}/todo/${id}`);
   }
 
-  updateTodo(index: number, updatedTodo: any) {
-    this.todos[index] = updatedTodo;
-    this.todos$.next(this.todos);
+  addTodo(data: Todo) {
+    console.log(data)
+    return this.http.post<Todo>(`${this.apiUrl}/todo`, data);
   }
 
-  deleteTodo(index: number) {
-    this.todos.splice(index, 1);
-    this.todos$.next(this.todos);
+  updateTodo(id: number, updatedData: Todo) {
+    console.log(updatedData)
+    return this.http.put<Todo>(`${this.apiUrl}/todo/${id}`, updatedData);
   }
 
-  completeTodo(index: number) {
-    this.todos[index].taskCompleted =!this.todos[index].taskCompleted;
-    this.todos$.next(this.todos);
+  deleteTodo(id: number) {
+    console.log(id)
+    return this.http.delete(`${this.apiUrl}/todo/${id}`);
+  }
+
+  completeTodo(id: number) {
+    console.log(id)
+    return this.http.put(`${this.apiUrl}/todo/${id}`, {isCompleted: true});
   }
 }

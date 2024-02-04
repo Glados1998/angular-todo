@@ -1,34 +1,42 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Validators, FormBuilder} from "@angular/forms";
 import {TodoServiceService} from "../services/todo-service.service";
+import {Todo} from "../interfaces/todo";
 
 @Component({
   selector: 'app-todo-form',
   templateUrl: './todo-form.component.html',
   styleUrls: ['./todo-form.component.scss']
 })
-export class TodoFormComponent {
+export class TodoFormComponent{
 
   constructor(
     private todoService: TodoServiceService,
     private _fb: FormBuilder
   ) {}
 
-  taskSeverety = ['Low', 'Medium', 'High'];
+  severity = ['Low', 'Medium', 'High'];
   todoForm = this._fb.group({
-    taskName: '',
-    taskDescription: '',
-    taskSeverety: '',
-    taskCompleted: [false]
+    title: ['', Validators.required],
+    description: '',
+    severity: ['', Validators.required],
+    isCompleted: [false]
   });
 
+
   onSubmit() {
-    if (this.todoForm.valid) {
-      this.todoService.addTodo(this.todoForm.value);
-      this.todoForm.reset();
-    } else {
-      alert('Please fill out all fields');
-    }
+  if (this.todoForm.valid) {
+    this.todoService.addTodo(this.todoForm.value as Todo);
+    this.todoForm.reset();
+  } else {
+    let invalidFields = [];
+    Object.keys(this.todoForm.controls).forEach(key => {
+      if (this.todoForm.controls[key].invalid) {
+        invalidFields.push(key);
+      }
+    });
+    alert('Please fill out the following fields: ' + invalidFields.join(', '));
   }
+}
 
 }

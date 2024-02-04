@@ -2,6 +2,7 @@ import {Component, Input} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {TodoModalComponent} from "../todo-modal/todo-modal.component";
 import {TodoServiceService} from "../services/todo-service.service";
+import {Todo} from "../interfaces/todo";
 
 @Component({
   selector: 'app-todo-item',
@@ -20,31 +21,48 @@ export class TodoItemComponent {
   }
 
 
-  editTask(todoIndex: number) {
-
-    // Open the dialog and pass the todoItem to the dialog
-    let dialogRef = this.dialog.open(TodoModalComponent, {
-      width: '300px',
-      data: {todoData: this.todoItems[todoIndex]}
+  editTask(id: number) {
+    // Open the dialog
+    const dialogRef = this.dialog.open(TodoModalComponent, {
+      width: '500px',
+      data: {
+        todoId: id,
+      }
     });
 
-    // When the dialog is closed, update the todoItem
-    dialogRef.afterClosed().subscribe(result => {
+    // After the dialog is closed
+    dialogRef.afterClosed().subscribe((result: Todo) => {
       if (result) {
-        this.todoService.updateTodo(todoIndex, result);
+        // Update the task
+        this.todoService.updateTodo(id, result).subscribe((data: any) => {
+          // Update the todoItems
+          this.todoItems = this.todoItems.map((todo: { id: number; }) => {
+            if (todo.id === data.id) {
+              return data;
+            }
+            return todo;
+          });
+        });
       }
     });
   }
 
   // Delete the task
-  deleteTask(todoIndex: number) {
-    if (window.confirm('Are you sure you want to delete the task:' + this.todoItems[todoIndex]['taskName'] + ' ?')) {
-      this.todoService.deleteTodo(todoIndex);
-    }
+  deleteTask(id: number) {
+    this.todoService.deleteTodo(id).subscribe((data: any) => {
+      this.todoItems = this.todoItems.filter((todo: { id: number; }) => todo.id !== id);
+    });
   }
 
   // Mark the task as completed
-  completeTask(todoIndex: number) {
-    this.todoService.completeTodo(todoIndex);
+  completeTask(id: number) {
+    this.todoService.completeTodo(id).subscribe((data: any) => {
+      this.todoItems = this.todoItems.map((todo: { id: number; }) => {
+        if (todo.id === data.id) {
+          return data;
+        }
+        return todo;
+      });
+    });
   }
 }

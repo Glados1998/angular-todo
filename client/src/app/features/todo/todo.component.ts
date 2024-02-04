@@ -1,6 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TodoServiceService} from "../../core/services/todo-service.service";
-import {FormBuilder} from "@angular/forms";
 import {Todo} from "../../core/interfaces/todo";
 
 @Component({
@@ -8,7 +7,7 @@ import {Todo} from "../../core/interfaces/todo";
   templateUrl: './todo.component.html',
   styleUrl: './todo.component.scss'
 })
-export class TodoComponent {
+export class TodoComponent implements OnInit {
 
   constructor(
     private todoService: TodoServiceService,

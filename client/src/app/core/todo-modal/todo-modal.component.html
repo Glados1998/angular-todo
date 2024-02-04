@@ -5,18 +5,18 @@
   <form [formGroup]="editForm" (ngSubmit)="onEditSubmit()">
     <div class="modal-content">
       <label for="title">Task:</label>
-      <input type="text" class="form-control" id="title" value="{{data.todoData.taskName}}" formControlName="taskName"
+      <input type="text" class="form-control" id="title" formControlName="title"
              required>
-      <p *ngIf="editForm.controls['taskName'].errors?.['required']">You have to specify a task name</p>
-      <label for="taskDescription">Description:</label>
-      <input class="form-control" id="taskDescription" value="{{data.todoData.taskDescription}}"
-             formControlName="taskDescription">
-      <p *ngIf="editForm.controls['taskDescription'].errors?.['maxlength']">Description is too long</p>
-      <label for="taskSeverity">Importance:</label>
-      <select id="taskSeverity" name="taskSeverity" formControlName="taskSeverety" required>
-        <option *ngFor="let severity of taskSeverety" [value]="severity">{{ severity }}</option>
+      <p *ngIf="editForm.controls['title'].errors?.['required']">You have to specify a task name</p>
+      <label for="description">Description:</label>
+      <input class="form-control" id="description"
+             formControlName="description">
+      <p *ngIf="editForm.controls['description'].errors?.['maxlength']">Description is too long</p>
+      <label for="severity">Importance:</label>
+      <select id="severity" name="severity" formControlName="severity" required>
+        <option *ngFor="let severity of severity" [value]="severity">{{ severity }}</option>
       </select>
-      <p *ngIf="editForm.controls['taskSeverety'].errors?.['required']">You have to specify a task severity</p>
+      <p *ngIf="editForm.controls['severity'].errors?.['required']">You have to specify a task severity</p>
     </div>
     <div class="modal-footer">
       <button type="submit" class="btn-success" [disabled]="!editForm.valid">Save</button>
