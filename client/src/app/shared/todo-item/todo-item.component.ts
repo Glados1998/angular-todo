@@ -59,15 +59,39 @@ export class TodoItemComponent {
     });
   }
 
-  // Mark the task as completed
-  completeTask(id: number) {
-    this.todoService.completeTodo(id).subscribe({
+  markAsComplete(id: number) {
+    // Get the current todo item
+    const currentTodo = this.todoItems.find((todo: { id: number; }) => todo.id === id);
+
+    // Update the isComplete property
+    const updatedTodo = { ...currentTodo, isComplete: true };
+
+    this.todoService.completeTodo(id, updatedTodo).subscribe({
       next: (data: any) => {
-        this.todoItems = this.todoItems.map((todo: { id: number; }) => todo.id === id ? data : todo);
+        console.log(updatedTodo)
+        this.todoItems = this.todoItems.map((todo: { id: number; }) => todo.id === data.id ? { ...todo, isComplete: true } : todo);
       },
       error: (error: any) => {
         console.error('There was an error!', error);
       }
     });
   }
+
+  markAsIncomplete(id: number) {
+    // Get the current todo item
+    const currentTodo = this.todoItems.find((todo: { id: number; }) => todo.id === id);
+
+    // Update the isComplete property
+    const updatedTodo = { ...currentTodo, isComplete: false };
+
+    this.todoService.updateTodo(id, updatedTodo).subscribe({
+      next: (data: any) => {
+        this.todoItems = this.todoItems.map((todo: { id: number; }) => todo.id === data.id ? { ...todo, isComplete: false } : todo);
+      },
+      error: (error: any) => {
+        console.error('There was an error!', error);
+      }
+    });
+  }
+
 }

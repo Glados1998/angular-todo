@@ -32,7 +32,7 @@ export class TodoServiceService {
     return this.http.delete(`${this.apiUrl}/todo/${id}`);
   }
 
-  completeTodo(id: number) {
-    return this.http.put(`${this.apiUrl}/todo/${id}`, {isCompleted: true});
+  completeTodo(id: number, updatedData: Todo) {
+    return this.http.put<Todo>(`${this.apiUrl}/todo/${id}`, updatedData);
   }
 }

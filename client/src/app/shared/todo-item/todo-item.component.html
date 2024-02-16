@@ -1,12 +1,13 @@
-<div class="todo-item" *ngFor="let todoItem of todoItems; let i = index">
+<div class="todo-item" *ngFor="let todoItem of todoItems">
   <div class="todo-item_content">
     <h4>Task: {{todoItem.title}}</h4>
     <p>Priority: {{todoItem.severity}}</p>
     <p>Note: {{todoItem.description}}</p>
   </div>
   <div class="todo-item-action_area">
-    <button class="btn-info" [disabled]="todoItem.isCompleted" (click)="editTask(todoItem.id)">Edit</button>
+    <button class="btn-info" [disabled]="todoItem.isComplete" (click)="editTask(todoItem.id)">Edit</button>
     <button class="btn-danger" (click)="deleteTask(todoItem.id)">Delete</button>
-    <button class="btn-success" (click)="completeTask(todoItem.id)">Complete</button>
+    <button class="btn-success" (click)="markAsComplete(todoItem.id)" *ngIf="!todoItem.isComplete">Complete</button>
+    <button class="btn-warning" (click)="markAsIncomplete(todoItem.id)" *ngIf="todoItem.isComplete">Reopen</button>
   </div>
 </div>

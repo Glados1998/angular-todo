@@ -89,3 +89,19 @@ button {
     cursor: not-allowed;
   }
 }
+
+.btn-warning {
+  @extend button;
+  border: 2px solid $warning;
+
+  &:hover {
+    background: $warning;
+  }
+
+  &:disabled {
+    background: $disabled;
+    color: $BAUHAUS-App-Branding-5-hex;
+    border: 2px solid $disabled;
+    cursor: not-allowed;
+  }
+}

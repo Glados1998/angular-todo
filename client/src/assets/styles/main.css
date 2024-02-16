@@ -17,7 +17,7 @@ input:focus, select:focus, textarea:focus {
   box-shadow: 0 0 0 2px #232323;
 }
 
-button, .btn-info, .btn-danger, .btn-success {
+button, .btn-warning, .btn-info, .btn-danger, .btn-success {
   border: 2px solid #232323;
   border-radius: 0.5rem;
   padding: 0.5rem;
@@ -28,12 +28,12 @@ button, .btn-info, .btn-danger, .btn-success {
   background: transparent;
   transition: all 0.2s ease-in-out;
 }
-button:hover, .btn-info:hover, .btn-danger:hover, .btn-success:hover {
+button:hover, .btn-warning:hover, .btn-info:hover, .btn-danger:hover, .btn-success:hover {
   cursor: pointer;
   background: #232323;
   color: #fff;
 }
-button:disabled, .btn-info:disabled, .btn-danger:disabled, .btn-success:disabled {
+button:disabled, .btn-warning:disabled, .btn-info:disabled, .btn-danger:disabled, .btn-success:disabled {
   background: #999999;
   color: #D9D9D9;
   border: 2px solid inherit;
@@ -73,6 +73,19 @@ button:disabled, .btn-info:disabled, .btn-danger:disabled, .btn-success:disabled
   background: #0367A6;
 }
 .btn-info:disabled {
+  background: #999999;
+  color: #D9D9D9;
+  border: 2px solid #999999;
+  cursor: not-allowed;
+}
+
+.btn-warning {
+  border: 2px solid #f0ad4e;
+}
+.btn-warning:hover {
+  background: #f0ad4e;
+}
+.btn-warning:disabled {
   background: #999999;
   color: #D9D9D9;
   border: 2px solid #999999;
@@ -215,7 +228,7 @@ form label {
   flex-direction: column;
   gap: 0.5rem;
 }
-form button, form .btn-success, form .btn-danger, form .btn-info {
+form button, form .btn-success, form .btn-danger, form .btn-info, form .btn-warning {
   place-self: center;
 }
 
