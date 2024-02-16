@@ -7,9 +7,10 @@ import {Component} from '@angular/core';
 })
 export class HeaderComponent {
 
-  links = [
-    {path: '/todo', label: 'Todo'},
-    {path: '/about', label: 'About'}
+  mainMenu = [
+    {path: 'home', label: 'Home'},
+    {path: 'todo', label: 'Todo'},
+    {path: 'about', label: 'About'}
   ];
 
 }

@@ -159,6 +159,7 @@ header nav ol li a {
   background: #cccccc;
   border-radius: 2rem;
   transition: all 0.3s ease-in-out;
+  margin: 1rem 0;
 }
 .todo-item:hover {
   transition: all 0.3s ease-in-out;
@@ -230,7 +231,7 @@ main {
   min-height: 100vh;
 }
 
-.intro {
+.outlet-container {
   margin: 2rem 0;
   text-align: center;
 }

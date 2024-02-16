@@ -4,13 +4,14 @@ import {LoginComponent} from './login/login.component';
 import {UserAccountComponent} from './user-account/user-account.component';
 import {TodoComponent} from './todo/todo.component';
 import {CoreModule} from "../core/core.module";
+import {SharedModule} from "../shared/shared.module";
 
 
 @NgModule({
   declarations: [
     LoginComponent,
     UserAccountComponent,
-    TodoComponent
+    TodoComponent,
   ],
   exports: [
     TodoComponent
@@ -18,6 +19,7 @@ import {CoreModule} from "../core/core.module";
   imports: [
     CommonModule,
     CoreModule,
+    SharedModule,
   ]
 })
 export class FeaturesModule {
