@@ -1,10 +1,15 @@
 <header>
-  <nav>
+  <nav class="nav">
     <span>
       Angular todo
     </span>
-    <ol>
+    <ol class="nav-main">
       <li *ngFor="let link of mainMenu">
+        <a [href]=link.path>{{ link.label }}</a>
+      </li>
+    </ol>
+    <ol class="nav-side">
+      <li *ngFor="let link of sideMenu">
         <a [href]=link.path>{{ link.label }}</a>
       </li>
     </ol>

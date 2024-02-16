@@ -80,12 +80,20 @@ button:disabled, .btn-info:disabled, .btn-danger:disabled, .btn-success:disabled
 }
 
 /* Color Theme Swatches in Hex */
-header nav {
-  display: flex;
+header .nav {
+  display: grid;
   align-items: center;
   padding: 1rem 2rem;
+  grid-gap: 1rem;
+  grid-template-columns: auto 1fr 1fr;
 }
-header nav span {
+header .nav-main {
+  place-self: start;
+}
+header .nav-side {
+  place-self: end;
+}
+header .nav span {
   color: inherit;
   font-size: 2rem;
   font-weight: bold;
@@ -96,23 +104,23 @@ header nav span {
   border-radius: 0.5rem;
   transition: all 0.3s ease-in-out;
 }
-header nav span:hover {
+header .nav span:hover {
   color: #fff;
   background: #BF1F2C;
   border-radius: 0.5rem;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
-header nav ol {
+header .nav ol {
   display: flex;
   list-style: none;
   margin-left: 1rem;
   padding: 0;
 }
-header nav ol li {
+header .nav ol li {
   margin: 0 1rem;
 }
-header nav ol li a {
+header .nav ol li a {
   color: inherit;
   text-decoration: none;
 }

@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {HEADER_LINKS, SIDE_MENU_LINKS} from "../../data/menu_data";
 
 @Component({
   selector: 'app-header',
@@ -7,10 +8,7 @@ import {Component} from '@angular/core';
 })
 export class HeaderComponent {
 
-  mainMenu = [
-    {path: 'home', label: 'Home'},
-    {path: 'todo', label: 'Todo'},
-    {path: 'about', label: 'About'}
-  ];
+  mainMenu = HEADER_LINKS;
+  sideMenu = SIDE_MENU_LINKS;
 
 }

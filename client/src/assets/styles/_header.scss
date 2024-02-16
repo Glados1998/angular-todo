@@ -1,12 +1,21 @@
 @import "./colors";
 
-
 header {
-
-  nav {
-    display: flex;
+  .nav {
+    display: grid;
     align-items: center;
     padding: 1rem 2rem;
+    grid-gap: 1rem;
+    grid-template-columns: auto 1fr 1fr;
+
+    &-main {
+      place-self: start;
+    }
+
+    &-side {
+      place-self: end;
+    }
+
     span {
       color: inherit;
       font-size: 2rem;
