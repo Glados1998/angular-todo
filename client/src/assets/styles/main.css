@@ -206,11 +206,11 @@ header .nav ol li a {
 }
 
 .completed {
-  background: #5cb85c;
+  border: solid 3px #5cb85c;
 }
 
 .incomplete {
-  background: #d9534f;
+  border: solid 3px #f0ad4e;
 }
 
 /* Color Theme Swatches in Hex */

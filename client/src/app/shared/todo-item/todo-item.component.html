@@ -1,4 +1,4 @@
-<div class="todo-item" *ngFor="let todoItem of todoItems">
+<div class="todo-item" *ngFor="let todoItem of todoItems" [ngClass]="{'completed': todoItem.isComplete, 'incomplete': !todoItem.isComplete}">
   <div class="todo-item_content">
     <h4>Task: {{todoItem.title}}</h4>
     <p>Priority: {{todoItem.severity}}</p>

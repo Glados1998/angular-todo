@@ -38,9 +38,9 @@
 }
 
 .completed {
-  background: $success;
+  border: solid 3px $success;
 }
 
 .incomplete {
-  background: $danger;
+  border: solid 3px $warning;
 }
