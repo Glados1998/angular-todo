@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Validators, FormBuilder} from "@angular/forms";
-import {TodoServiceService} from "../../core/services/todo-service.service";
+import {TodoService} from "../../core/services/todo.service";
 import {Todo} from "../../core/interfaces/todo";
 
 @Component({
@@ -11,7 +11,7 @@ import {Todo} from "../../core/interfaces/todo";
 export class TodoFormComponent{
 
   constructor(
-    private todoService: TodoServiceService,
+    private todoService: TodoService,
     private _fb: FormBuilder
   ) {}
 

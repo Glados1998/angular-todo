@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {FormBuilder, Validators} from "@angular/forms";
-import {TodoServiceService} from "../../core/services/todo-service.service";
+import {TodoService} from "../../core/services/todo.service";
 import {Todo} from "../../core/interfaces/todo";
 
 @Component({
@@ -14,7 +14,7 @@ export class TodoModalComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<TodoModalComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any,
               private fb: FormBuilder,
-              private todoService: TodoServiceService) {
+              private todoService: TodoService) {
   }
 
   public editForm = this.fb.group({

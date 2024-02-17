@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {TodoModalComponent} from "../todo-modal/todo-modal.component";
-import {TodoServiceService} from "../../core/services/todo-service.service";
+import {TodoService} from "../../core/services/todo.service";
 import {Todo} from "../../core/interfaces/todo";
 
 @Component({
@@ -16,7 +16,7 @@ export class TodoItemComponent {
 
   constructor(
     private dialog: MatDialog,
-    private todoService: TodoServiceService,
+    private todoService: TodoService,
   ) {
   }
 

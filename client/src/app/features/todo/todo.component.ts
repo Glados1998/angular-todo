@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {TodoServiceService} from "../../core/services/todo-service.service";
+import {TodoService} from "../../core/services/todo.service";
 import {Todo} from "../../core/interfaces/todo";
 
 @Component({
@@ -10,7 +10,7 @@ import {Todo} from "../../core/interfaces/todo";
 export class TodoComponent implements OnInit {
 
   constructor(
-    private todoService: TodoServiceService,
+    private todoService: TodoService,
   ) {}
 
   todos: Todo[] = [];
