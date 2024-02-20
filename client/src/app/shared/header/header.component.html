@@ -9,8 +9,17 @@
       </li>
     </ol>
     <ol class="nav-side">
-      <li *ngFor="let link of sideMenu">
-        <a [href]=link.path>{{ link.label }}</a>
+      <li>
+        <a routerLink="login">Login</a>
+      </li>
+      <li>
+        <a routerLink="register">Register</a>
+      </li>
+      <li>
+        <a routerLink="account">Account</a>
+      </li>
+      <li>
+        <a>Logout</a>
       </li>
     </ol>
   </nav>

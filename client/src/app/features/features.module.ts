@@ -5,6 +5,7 @@ import {UserAccountComponent} from './user-account/user-account.component';
 import {TodoComponent} from './todo/todo.component';
 import {CoreModule} from "../core/core.module";
 import {SharedModule} from "../shared/shared.module";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -16,11 +17,12 @@ import {SharedModule} from "../shared/shared.module";
   exports: [
     TodoComponent
   ],
-  imports: [
-    CommonModule,
-    CoreModule,
-    SharedModule,
-  ]
+    imports: [
+        CommonModule,
+        CoreModule,
+        SharedModule,
+        ReactiveFormsModule,
+    ]
 })
 export class FeaturesModule {
 }

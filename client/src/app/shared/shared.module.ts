@@ -5,6 +5,7 @@ import {TodoFormComponent} from "./todo-form/todo-form.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {TodoItemComponent} from "./todo-item/todo-item.component";
 import {TodoModalComponent} from "./todo-modal/todo-modal.component";
+import {RouterLink} from "@angular/router";
 
 
 @NgModule({
@@ -20,10 +21,11 @@ import {TodoModalComponent} from "./todo-modal/todo-modal.component";
     TodoItemComponent,
     TodoModalComponent
   ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-  ]
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        RouterLink,
+    ]
 })
 export class SharedModule {
 }

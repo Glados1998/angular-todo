@@ -16,7 +16,7 @@ export class TodoComponent implements OnInit {
   todos: Todo[] = [];
 
   ngOnInit() {
-    this.todoService.getTodos().subscribe({
+    this.todoService.watchTodo().subscribe({
       next: (data: Todo[]) => {
         this.todos = data;
       },
@@ -25,5 +25,4 @@ export class TodoComponent implements OnInit {
       }
     });
   }
-
 }
