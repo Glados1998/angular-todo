@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {Iuser} from "../interfaces/iuser";
 
 @Injectable({
   providedIn: 'root'
@@ -7,27 +8,27 @@ export class AuthService {
 
   constructor() { }
 
-  login(credentials: any) {
+  login(credentials: Iuser) {
      console.log('login', credentials)
   }
 
-  logout() {
+  logout(id: number) {
     // logic to logout
   }
 
-  register(credentials: any) {
+  register(credentials: Iuser) {
     // logic to register
   }
 
-  isAuthenticated() {
+  isAuthenticated(id: number) {
     // logic to check if user is authenticated
   }
 
-  getUser() {
+  getUser(id: number) {
     // logic to get user
   }
 
-  deleteUser() {
+  deleteUser(id: number) {
     // logic to delete user
   }
 

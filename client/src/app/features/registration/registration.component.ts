@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {FormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
 import {AuthService} from "../../core/services/auth.service";
+import {Iuser} from "../../core/interfaces/iuser";
 
 @Component({
   selector: 'app-registration',
@@ -19,14 +20,14 @@ export class RegistrationComponent {
   ) {}
 
   registerForm = this._fb.group({
-    username: ['', Validators.required],
+    email: ['', Validators.required],
     password: ['', Validators.required],
     confirmPassword: ['', Validators.required]
   });
 
   onSubmit() {
     if (this.registerForm.valid && this.registerForm.value.password === this.registerForm.value.confirmPassword) {
-      this.authService.register(this.registerForm.value);
+      this.authService.register(this.registerForm.value as Iuser);
       console.log('Registration successful', this.registerForm.value);
       this.registerForm.reset();
     } else {

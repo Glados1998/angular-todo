@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {AuthService} from "../../core/services/auth.service";
+import {Iuser} from "../../core/interfaces/iuser";
 
 @Component({
   selector: 'app-login',
@@ -15,13 +16,13 @@ export class LoginComponent {
   ) {}
 
   loginForm = this._fb.group({
-    username: ['', Validators.required],
+    email: ['', Validators.required],
     password: ['', Validators.required]
   });
 
   onSubmit() {
     if (this.loginForm.valid) {
-      this.authService.login(this.loginForm.value);
+      this.authService.login(this.loginForm.value as Iuser);
     } else {
       alert('Please fill out the following fields: ' + Object.keys(this.loginForm.controls).join(', '));
     }

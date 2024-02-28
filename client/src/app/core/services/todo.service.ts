@@ -7,7 +7,7 @@ import {interval, switchMap} from "rxjs";
   providedIn: 'root'
 })
 export class TodoService {
-  private apiUrl = 'http://localhost:5292/api';
+  private apiUrl = 'http://localhost:5292/angular-todo-api';
 
   constructor(private http: HttpClient) {
   }
