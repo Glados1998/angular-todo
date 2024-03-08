@@ -1,27 +1,31 @@
-import { Injectable } from '@angular/core';
-import {Iuser} from "../interfaces/iuser";
+import {Injectable} from '@angular/core';
+import {IUser} from "../interfaces/iuser";
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) {
+  }
 
-  login(credentials: Iuser) {
-     console.log('login', credentials)
+  private apiUrl = 'http://localhost:5292/angular-todo-api/auth';
+
+  register(credentials: IUser): Observable<any> {
+    return this.http.post(this.apiUrl + '/register', credentials);
+
+  }
+
+  login(credentials: IUser): Observable<any> {
+    return this.http.post(this.apiUrl + '/login', credentials);
   }
 
   logout(id: number) {
     // logic to logout
-  }
-
-  register(credentials: Iuser) {
-    // logic to register
-  }
-
-  isAuthenticated(id: number) {
-    // logic to check if user is authenticated
   }
 
   getUser(id: number) {
@@ -29,7 +33,7 @@ export class AuthService {
   }
 
   deleteUser(id: number) {
-    // logic to delete user
+
   }
 
 }

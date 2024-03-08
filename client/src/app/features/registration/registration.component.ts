@@ -1,14 +1,10 @@
-import { Component } from '@angular/core';
-import {FormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
+import {Component} from '@angular/core';
+import {FormBuilder, Validators} from "@angular/forms";
 import {AuthService} from "../../core/services/auth.service";
-import {Iuser} from "../../core/interfaces/iuser";
+import {IUser} from "../../core/interfaces/iuser";
 
 @Component({
   selector: 'app-registration',
-  standalone: true,
-    imports: [
-        ReactiveFormsModule
-    ],
   templateUrl: './registration.component.html',
   styleUrl: './registration.component.scss'
 })
@@ -17,7 +13,8 @@ export class RegistrationComponent {
   constructor(
     private authService: AuthService,
     private _fb: FormBuilder
-  ) {}
+  ) {
+  }
 
   registerForm = this._fb.group({
     email: ['', Validators.required],
@@ -27,9 +24,15 @@ export class RegistrationComponent {
 
   onSubmit() {
     if (this.registerForm.valid && this.registerForm.value.password === this.registerForm.value.confirmPassword) {
-      this.authService.register(this.registerForm.value as Iuser);
-      console.log('Registration successful', this.registerForm.value);
-      this.registerForm.reset();
+      this.authService.register(this.registerForm.value as IUser).subscribe({
+        next: (data: any) => {
+          console.log('Registration successful', data);
+        },
+        error: (error: any) => {
+          console.error('There was an error!', error);
+        }
+      })
+
     } else {
       alert('Passwords do not match');
     }

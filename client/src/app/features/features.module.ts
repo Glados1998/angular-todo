@@ -6,12 +6,14 @@ import {TodoComponent} from './todo/todo.component';
 import {CoreModule} from "../core/core.module";
 import {SharedModule} from "../shared/shared.module";
 import {ReactiveFormsModule} from "@angular/forms";
+import {RegistrationComponent} from "./registration/registration.component";
 
 
 @NgModule({
   declarations: [
     LoginComponent,
     UserAccountComponent,
+    RegistrationComponent,
     TodoComponent,
   ],
   exports: [
